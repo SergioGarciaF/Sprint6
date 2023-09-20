@@ -1,12 +1,18 @@
-import Escena from "./componentes/Escena"
+import historia from './componentes/historia.json';
+import Escena from './componentes/Escena';
 
-function App() {
+type HistoriaItem = {
+  frase: string;
+};
 
+function App(): React.ReactElement {
   return (
-      <div>
-        <Escena />
-      </div>
-  )
+    <div>
+      {historia.map((linea: HistoriaItem, index: number) => (
+        <Escena key={index} texto={linea.frase} />
+      ))}
+    </div>
+  );
 }
 
-export default App
+export default App;
